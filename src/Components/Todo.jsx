@@ -3,8 +3,7 @@ import plus from "../images/Plus.svg";
 import check from "../images/Group 1.svg";
 import trash from "../images/TrashSimple.svg";
 
-
-export const Todo = ({addList, onChangeList, onChangeTask, tasks}) => {
+export const Todo = ({ addList, onChangeList, tasks }) => {
   return (
     <div className={style.container}>
       <div className={style.det}>
@@ -13,21 +12,23 @@ export const Todo = ({addList, onChangeList, onChangeTask, tasks}) => {
       </div>
       <div className={style.taskslist}>
         <div className={style.add}>
-          <input type="text"  onChange={onChangeList} placeholder="Add a new task" />
+          <input
+            type="text"
+            onChange={onChangeList}
+            placeholder="Add a new task"
+          />
           <button onClick={addList}>
             <img src={plus} alt="Add button" />
           </button>
         </div>
 
         <div className={style.list}>
-          <h2>Tasks to do - <span>4</span> </h2>
-          {
-            tasks?.map((task) => {
-              return (
-                <Task task={task.title}/>
-              )
-            })
-          }
+          <h2>
+            Tasks to do - <span>4</span>{" "}
+          </h2>
+          {tasks?.map((task) => {
+            return <Task task={task.title} />;
+          })}
         </div>
 
         <div className={style.taskdone}>
@@ -39,21 +40,21 @@ export const Todo = ({addList, onChangeList, onChangeTask, tasks}) => {
           </div>
         </div>
       </div>
-
     </div>
   );
 };
 
-
-const Task = ({task}) => {
+const Task = ({ task, setTodo }) => {
+  const handleDelete = (singleTodo) => {
+    const newTodo = task.filter((todo) => todo !== singleTodo)
+    setTodo(newTodo)
+  }
   return (
     <div className={style.task}>
-            <p>{task}</p>
-            <span>
-              <img src={check} alt="" /> <img src={trash} alt="" />
-            </span>
-          </div>
-
-
-  )
-}
+      <p>{task}</p>
+      <span>
+        <img src={check} alt="" /> <img onClick={() => handleDelete(task)} src={trash} alt="" />
+      </span>
+    </div>
+  );
+};

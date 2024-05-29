@@ -45,7 +45,7 @@ useEffect (
     <div>
 
       <Todo addList={addList} onChangeList={onChangeList} tasks={todos} />
-      {/* <TodoList todos={todos}/> */}
+      <TodoList todos={todos}/>
 
       
 
