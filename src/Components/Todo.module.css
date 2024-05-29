@@ -82,7 +82,7 @@ body {
     background: hsl(0, 0%, 8%);
     margin-bottom: 1em;
     border-radius: .3em;
-    padding: 1em .7em;
+    padding: 1em .8em;
     color: purple;
 }
 
@@ -94,7 +94,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
 }
 
 .task span img {

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import { Todo } from './Components/Todo'
-import { TodoList } from './Components/TodoList'
+import { List } from './Components/List'
 
 
 import axios from 'axios'
@@ -44,8 +44,9 @@ useEffect (
   return (
     <div>
 
-      <Todo addList={addList} onChangeList={onChangeList} tasks={todos} />
-      <TodoList todos={todos}/>
+      <Todo addList={addList} onChangeList={onChangeList} tasks={todos}  />
+
+      {/* <TodoList todos={todos}/> */}
 
       
 

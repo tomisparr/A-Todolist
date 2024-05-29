@@ -1,7 +1,8 @@
 import style from "./Todo.module.css";
 import plus from "../images/Plus.svg";
-import check from "../images/Group 1.svg";
-import trash from "../images/TrashSimple.svg";
+
+
+import { List } from "./List";
 
 export const Todo = ({ addList, onChangeList, tasks }) => {
   return (
@@ -27,7 +28,7 @@ export const Todo = ({ addList, onChangeList, tasks }) => {
             Tasks to do - <span>4</span>{" "}
           </h2>
           {tasks?.map((task) => {
-            return <Task task={task.title} />;
+            return <List task={task.title} setTask={task} />;
           })}
         </div>
 
@@ -44,17 +45,4 @@ export const Todo = ({ addList, onChangeList, tasks }) => {
   );
 };
 
-const Task = ({ task, setTodo }) => {
-  const handleDelete = (singleTodo) => {
-    const newTodo = task.filter((todo) => todo !== singleTodo)
-    setTodo(newTodo)
-  }
-  return (
-    <div className={style.task}>
-      <p>{task}</p>
-      <span>
-        <img src={check} alt="" /> <img onClick={() => handleDelete(task)} src={trash} alt="" />
-      </span>
-    </div>
-  );
-};
+
