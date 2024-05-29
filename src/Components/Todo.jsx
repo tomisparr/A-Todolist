@@ -4,7 +4,7 @@ import plus from "../images/Plus.svg";
 
 import { List } from "./List";
 
-export const Todo = ({ addList, onChangeList, totalTodo, tasks }) => {
+export const Todo = ({ addList, onChangeList, totalTodo, tasks, handleDelete }) => {
   return (
     <div className={style.container}>
       <div className={style.det}>
@@ -28,7 +28,7 @@ export const Todo = ({ addList, onChangeList, totalTodo, tasks }) => {
             Tasks to do - <span>{totalTodo}</span>
           </h2>
           {tasks?.map((task) => {
-            return <List task={task.title} setTask={task} />;
+            return <List task={task} setTask={task} handleDelete={handleDelete} />;
           })}
         </div>
 
