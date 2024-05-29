@@ -8,12 +8,16 @@ import { List } from './Components/List'
 import axios from 'axios'
 
 function App() {
-const [todos, setTodos] =useState (null);
+const [todos, setTodos] =useState ([]);
 const [todo, setTodo] = useState ("");
 
 const onChangeList =(e) => setTodo(e.target.value);
+
+const totalTodo = todos.length +1
+
 const addList= (e) => {
   e.preventDefault();
+  
   const newAdd = {
     title: todo,
     description: "todo example description",
@@ -44,7 +48,7 @@ useEffect (
   return (
     <div>
 
-      <Todo addList={addList} onChangeList={onChangeList} tasks={todos}  />
+      <Todo addList={addList} onChangeList={onChangeList} tasks={todos} totalTodo={totalTodo}  />
 
       {/* <TodoList todos={todos}/> */}
 
